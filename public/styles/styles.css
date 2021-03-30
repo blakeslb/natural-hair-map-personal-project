@@ -1,0 +1,471 @@
+:root{
+    --bckrnd-header: #000000;
+    --navbar: black;
+    --navfont: white;
+    --headerfont:'Poppins', sans-serif;
+    --bodyfont: 'Raleway', sans-serif;
+    --buttoncolor: #79d9c1;
+    --cardbckrnd: #D98B79;
+    --carditems: #79d9c1;
+    --formcolor: #d4b4d9;
+    --lightborder: lightgrey; 
+    --inputboxcolor: #ccc;
+    --icon-arrow-color: #D98B79;
+}
+
+body{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* width: 100%; */
+    max-width: 100vw;
+    /* overflow-x: hidden; */
+    background-color:white;  
+    font-family: var(--bodyfont);
+    /* padding: 0px, 5px; */
+
+}
+/* Styles headings (section titles) */
+h1, h2, h3, h4, h5, h6{
+    font-family: var(--headerfont);
+}
+/* Styles header */
+header{
+    width: 100vw;
+    flex-direction: column;
+    text-align: center;
+    margin: 0px;
+    background: var(--bckrnd-header);
+    background-image: url('/public/images/stock2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 20em;  
+}
+
+header div{
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: var(--bckrnd-header);
+    color: var(--navfont);
+}
+header h1, h4{
+    margin: 0px;
+    padding: 0px;
+    font-weight: lighter;  
+}
+
+/* Navigation Bar */
+header i.fas{
+    
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5%;   
+}
+
+nav{
+    display: none;
+    width: 100vw;
+    font-weight: lighter;  
+}
+
+nav ul{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    background: var(--navbar);
+    border: 1px solid var(--navbar);
+    margin: 0;
+  }
+  
+  nav a {
+    display: block;
+    flex-grow: 1;
+    padding: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--navfont);
+  }
+  
+  .navbar a:hover {
+    background: lightyellow;
+    color: var(--navbar);
+  }
+
+  a.active {
+    background: var(--navbar);
+    color: var(--navfont); 
+  }
+
+.large-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100vw;
+}
+
+/* How to use this map section */
+div.left-container{
+    background-color:white;
+    width: 100vw;
+    height: auto;
+    text-align: left;
+    padding-left: 10px;
+}
+div.left-container h3{
+    text-align: center;
+    margin-top: 10%;
+}
+div.left-container li{
+    padding: 8px;
+}
+.map{
+    width: auto;
+    height: 60vh;
+    /* display:inline-block; */
+    background-color: white;
+    /* padding: 40px; */
+
+}
+#map{
+    width: 100%;
+    height: 100%;
+}
+
+.map-listing{
+    background-color: #daba80;
+    width: 25%;
+    height: auto;
+    display: inline block;
+    border-radius: 5px;
+    margin: 10px; 
+}
+.right-container{
+    width: 90vw;
+    height: auto;
+}
+/* filter bar  */
+div.filter-bar{
+    border: 2px solid black;
+    margin-top: 3%;
+    /* width: 100%; */
+}
+
+div.filter-bar p {
+    margin: 10px;
+}
+div.filter-bar ul{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+div.filter-bar li{
+    margin: 0 10px;
+}
+div.filter-bar button{
+    margin: 0px;
+    font: var(--bodyfont);
+    font-size: .8rem;
+    padding: 5px 0px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    border: none;
+}
+/* profile cards */
+
+/* container for all listings */
+.listing-card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+/* container for individual cards */
+.card-container{
+    display: flex;
+    flex-direction: column; 
+    width: 50%;
+    max-width: 300px;
+    justify-content: center;
+    margin: 1%;
+    background-color: var(--cardbckrnd);
+    border: 1px solid var(--cardbckrnd);
+}
+/* top card (photo) */
+.topcard{
+    height: 200px;
+}
+
+img.card-photo{
+    width: 100%;
+    align-self: center; 
+    border: 1px solid black;
+}
+
+/* bottom card */
+
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: 
+    text-align: left;
+    padding: 3px 15px;
+    margin-top: 30px;
+    width: 100%; 
+    }
+    
+.services ul {
+    /* max-width; */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    }
+    
+.services ul li {
+      border: 1px solid var(--carditems);
+      border-radius: 2px;
+      display: inline-block;
+      font-size: .7rem;
+      margin: 0 3px 3px 0;
+      padding: 6px;
+      background-color: var(--carditems);
+    } 
+
+    /* About page */
+
+.about-container{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black; 
+    margin: 5%;
+}
+.about-container h2{
+    align-self: center;
+    font-weight: 300;
+}
+.about-container p{
+    margin: 3%;
+    font-size: 1.1rem;
+}
+/* Button */
+.add-button, .submit-button{
+    width: 40%;
+    align-self: center;
+    margin: 30px 0px 30px 0px;
+    /* border-radius: 10px; */
+    background-color: var(--buttoncolor);
+    height: 1.5rem;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+ /* Add a listing form    */
+ .form-submission{
+     display: flex;
+     flex-direction: column;
+     width: 95vw;
+     Max-width: 800px;
+     margin: auto; 
+     margin-top: 20px; 
+     background-color: var(--formcolor);
+     
+ }
+
+ .form-submission legend {
+     text-align: center; 
+     font-size: 1.5rem; 
+     font-weight: bold; 
+ }
+
+ #next-arrows-pair {
+     display: flex; 
+     width: 100%;
+     justify-content: space-between; 
+     height: auto;    
+ }
+
+ #next-arrows-pair i {
+     color: var(--icon-arrow-color);
+     font-size: 2rem;
+    
+ }
+ #fieldset-1{
+    display: flex;
+    flex-direction: column;
+    border: none; 
+    max-width: 800px; 
+    
+ }
+
+ #fieldset-1>div{
+     padding: 5px; 
+     align-self: center; 
+     
+ }
+
+ #fieldset-1 label {
+    padding-right: 20px;  
+    width: 320px;
+}
+
+#fieldset-1 input, select {
+    width: 300px;
+    border-radius: 4px;
+    border: 1px solid var(--inputboxcolor);
+}
+ 
+#container-services{
+    display: flex; 
+    flex-wrap: wrap; 
+    width: 100%; 
+    justify-content: space-around;
+    display: none; 
+    border: none; 
+    
+}
+#container-services div {
+    width: 250px; 
+    padding-left: 0px;
+
+}
+ #fieldset-2{
+     display: flex;
+     flex-direction: column;
+     display: none; 
+     border: none; 
+ }
+ #fieldset-2>div{
+     display: flex;
+     justify-content: center; 
+     margin: 5px 0px;  
+ } 
+
+ #fieldset-2 label {
+    padding-right: 10px; 
+    width: 120px; 
+}
+#fieldset-2 input {
+    width: 40%;
+    border-radius: 4px;
+    border: 1px solid var(--inputboxcolor);
+}
+
+ #fieldset-3{
+    display: flex;
+    flex-direction: column;
+    display: none; 
+    border: none; 
+}
+#fieldset-3>div{
+    display: flex;
+    justify-content: center; 
+    margin: 5px 0px;
+}
+
+#fieldset-3 label {
+    padding-right: 10px; 
+    width: 120px; 
+}
+#fieldset-3 input {
+    width: 40%;
+    border-radius: 4px;
+    border: 1px solid var(--inputboxcolor);
+   
+}
+
+/* Contact Form  */
+
+.contact-form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap; 
+    width: 95vw;
+    Max-width: 800px;
+    margin: auto; 
+    margin-top: 20px; 
+  
+    background-color: var(--formcolor);
+   
+}
+
+.contact-form legend {
+    text-align: center; 
+    font-size: 1.5rem; 
+    font-weight: bold; 
+    margin: 20px; 
+}
+
+.contact-form>div{
+    display: flex;
+    justify-content: center; 
+    margin: 5px 0px;
+}
+
+.contact-form label{
+    width: 100px; 
+}
+
+.contact-form input{
+    width: 50%;
+    border-radius: 4px;
+    border: 1px solid var(--inputboxcolor);
+}
+
+.contact-form input[type=textarea] {
+    height: 200px; 
+    margin-bottom: 10px; 
+    
+}
+
+/* footer */
+footer {
+        background-color: #222;
+        color: black;
+        font-size: 14px;
+        width: 100vw;
+        height: 50px;
+        text-align: center; 
+        
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+    }
+    
+    footer p {
+    
+    }
+    
+    footer i {
+    }
+    
+    footer a {
+        text-decoration: none;
+    }
+
+
+/* Mobile size */
+@media screen and (max-width: 700px){
+    header h1{
+        font-size: 1.5rem;
+    }
+}
+/* Tablet size  */
+@media screen and (min-width: 700px){
+    nav{
+        display:inline-block;
+    }
+    #hamburger-menu {
+        display: none;
+    }
+    .about-container{
+        margin: 0, 15%;
+     
+    }
+}
