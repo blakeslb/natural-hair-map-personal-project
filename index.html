@@ -1,164 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="public/styles/styles.css">
-    <script src="https://kit.fontawesome.com/cd65848fa7.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com"> 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com"> 
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <title>Home</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="public/styles/styles.css">
+  <script src="https://kit.fontawesome.com/cd65848fa7.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+
+  <title>Home</title>
 </head>
+
 <body>
-    <header>
-        <div>
-        <h1>The Natural Hair Directory</h1>
-        <h4>GREATER BOSTON</h4>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-                <li><a href="add.html">ADD A LISTING</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
-            </ul>
-        </nav>
-        <i class="fas fa-bars fa-2x"></i>
-    </header>
-    <div class="large-container">
+  <header>
+    <div>
+      <img src="public/images/main-background.png"
+        alt="A woman with braided hair and a the title 'The Natural Hair Directory, Greater Boston Area'">
+    </div>
+  </header>
+  <!-- Navbar content -->
+
+  <nav class="topnav">
+
+    <a href="index.html">HOME</a>
+    <a href="about.html">ABOUT</a>
+    <a href="add.html">ADD A LISTING</a>
+    <a href="contact.html">CONTACT</a>
+
+  </nav>
+
+
+  <!-- <i class="fas fa-bars fa-2x" id="hambubrger-icon"></i> -->
+
+  <!-- Large container wraps all others -->
+  <div class="wrap-container">
+    <!-- left container -->
     <div class="left-container">
-        <h3>HOW TO USE THIS MAP</h3>
-        <ol>
-            <li>Use the cursor to navigate and zoom into map by the desired neighborhood or area. </li>
-            <li>Stylists are represented by icons. Click the icon to view information about a listing.</li>
-            <li>View a stylist's information and/or leave a comment for others to see!</li>
-        </ol>
+      <h3>HOW TO USE THIS MAP</h3>
+      <ol>
+        <li>Use the cursor to navigate and zoom into map by the desired neighborhood or area. </li>
+        <li>Stylists are represented by icons. Click the icon to view information about a listing.</li>
+        <li>View a stylist's information and/or leave a comment for others to see!</li>
+      </ol>
     </div>
-    <div class="map">
-        <!-- map import -->
-        <iframe id = #map src="https://www.google.com/maps/d/u/0/embed?mid=1ZjVUPMjOaDWmCqYm8Pf5hiPFnjC6wxpo" height = 100%; width= 100%;></iframe>
+    <!-- middle container div element for map -->
+    <div class="middle-container">
+      <div id="map"> </div>
+      <script>
+
+        // Initialize and add the map
+        function initMap() {
+          // The location of Boston
+          const boston = { lat: 42.3601, lng: -71.0589 };
+          // The map, centered at Boston
+          const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 11,
+            center: boston,
+          });
+
+          //Array of markers
+          const markers = [
+            {
+              coords: { lat: 42.3601, lng: -71.0589 },
+              content: '<h1>Boston, MA</h1>'
+            },
+            {
+              coords: { lat: 42.288387421566924, lng: -71.06370145126924 },
+              content: '<h1>Styllistik</h1>'
+            },
+          ]
+          //Loop though markers
+          for (let i = 0; i < markers.length; i++) {
+            addMarker(markers[i])
+          }
+          // Add Marker Function
+          function addMarker(props) {
+            const marker = new google.maps.Marker({
+              position: props.coords,
+              map: map,
+              content: props.content
+            });
+
+            //check for customicon
+            if (props.iconImage) {
+              //set icon image
+              marker.setIcon(props.iconImage);
+            }
+            //check content
+            if (props.content) {
+              const infoWindow = new google.maps.InfoWindow({
+                content: props.content
+              });
+
+              marker.addListener('click', function () {
+                infoWindow.open(map, marker);
+              });
+            }
+          }
+        }
+      </script>
+      <!-- script with API key for google map -->
+      <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKEZCz730qwqKPlvJkYEMWkXfqPPR2zeA&callback=initMap&libraries=&v=weekly"
+        async></script>
     </div>
-    
-    <article class="directory">
-        <div class="filter-bar">
-            <p>search by service </p>
-            <ul>
-                <li><input type="checkbox"> whatever</li>
-                <li><input type="checkbox"> whatever</li>
-                <li><input type="checkbox"> whatever</li>
-                <li><input type="checkbox"> whatever</li>
-                <li><input type="checkbox"> whatever</li>
-                <li><input type="checkbox"> whatever</li>
-                <li><input type="checkbox"> whatever</li>
-                <li><input type="checkbox"> whatever</li>
-                <li><input type="checkbox"> whatever</li>
-                <li><input type="checkbox"> whatever</li>
-            </ul>
-            <button>clear all</button>
+
+    <!-- right container directory listing section -->
+
+    <div class="right-container">
+      <div class="filter-bar">
+        <h2>search by service </h2>
+        <ul>
+          <li><input type="checkbox"> haircut/trim</li>
+          <li><input type="checkbox"> updo</li>
+          <li><input type="checkbox"> deva cut</li>
+          <li><input type="checkbox"> dry cut</li>
+          <li><input type="checkbox"> hair color</li>
+          <li><input type="checkbox"> blow out</li>
+          <li><input type="checkbox"> press and curl/flat iron</li>
+          <li><input type="checkbox"> twists(no extensions</li>
+          <li><input type="checkbox"> flat twists</li>
+          <li><input type="checkbox"> bridal</li>
+          <li><input type="checkbox"> protective hairstyles</li>
+          <li><input type="checkbox"> senegalese twists</li>
+          <li><input type="checkbox"> passion twists</li>
+          <li><input type="checkbox"> braiding/twists(with extensions)</li>
+          <li><input type="checkbox"> crochet</li>
+          <li><input type="checkbox"> locs</li>
+          <li><input type="checkbox"> sister locs</li>
+          <li><input type="checkbox"> weave(sew-in)</li>
+          <li><input type="checkbox"> wigs</li>
+          <li><input type="checkbox"> hair treatment with heat</li>
+          <li><input type="checkbox"> wash and detangle</li>
+          <li><input type="checkbox"> wash and set</li>
+
+        </ul>
+        <button>clear all</button>
+      </div>
+    </div>
+
+
+    <div class="lcards">
+
+      <div class="card">
+        <img src="public/images/scissors.jpg"></img>
+        <div class="card-container">
+          <h2>Styllistik </h2>
+          <p>1831 Dorchester Ave, Boston, MA 02124</p>
+          <ul>
+            <li>hair cut/trim</li>
+            <li>hair color</li>
+            <li>press and curl/flat iron</li>
+            <li>updos</li>
+            <li>protective hairstyles</li>
+            <li>locs</li>
+            <li>braiding/twists(with extensions)</li>
+            <li>bridal</li>
+            <li>weave(sew-in)</li>
+            <li>wigs</li>
+          </ul>
         </div>
-        <div class="listing-card">
+      </div>
 
-            <div class="card-container">
-                
-                <div class = "topcard">
-                <img class="card-photo" src="public/images/scissors.jpg" alt="user"/>
-                </div>
-              
-                <div class="services">
-                  
-                  <h6>Services</h6>
-                  <ul>
-                    <li>hair cut/trim</li>
-                    <li>color</li>
-                    <li>hair treatment (with heat)</li>
-                    <li>braids (no extensions</li>
-                    <li>locs</li>
-                    <li>senegalese twists</li>
-                    <li>updos</li>
-                  </ul>
-                </div>
-            </div>
+      <div class="card">
+        <img src="public/images/scissors.jpg"></img>
+        <div class="card-container">
+          <h2>Liz's Hair Care</h2>
+          <p>1605 Tremont St., Boston MA 02120</p>
+          <ul>
+            <li>wash and set</li>
+            <li>hair cut/trim</li>
+            <li>hair color</li>
+            <li>press and curl/flat iron</li>
+            <li>updos</li>
+            <li>protective hairstyles</li>
+            <li>locs</li>
+            <li>braiding/twists(with extensions)</li>
+            <li>hair treatment with heat</li>
 
-            <div class="card-container">    
-                <div class = "topcard">
-                <img class="card-photo" src="public/images/scissors.jpg" alt="user"/>
-                </div>
-              
-                <div class="services">
-                  <h6>Services</h6>
-                  <ul>
-                    <li>hair cut/trim</li>
-                    <li>color</li>
-                    <li>hair treatment (with heat)</li>
-                    <li>braids (no extensions</li>
-                    <li>locs</li>
-                    <li>senegalese twists</li>
-                    <li>updos</li>
-                  </ul>
-                </div>
-            </div>
+          </ul>
+        </div>
+      </div>
 
-            <div class="card-container">    
-                <div class = "topcard">
-                <img class="card-photo" src="public/images/scissors.jpg" alt="user"/>
-                </div>
-              
-                <div class="services">
-                  <h6>Services</h6>
-                  <ul>
-                    <li>hair cut/trim</li>
-                    <li>color</li>
-                    <li>hair treatment (with heat)</li>
-                    <li>braids (no extensions</li>
-                    <li>locs</li>
-                    <li>senegalese twists</li>
-                    <li>updos</li>
-                  </ul>
-                </div>
-            </div>
+      <div class="card">
+        <img src="public/images/scissors.jpg"></img>
+        <div class="card-container">
+          <h2>Simply Erinn's Unisex Hair Salon</h2>
+          <p>268 Brookline St Cambridge, MA 02139</p>
+          <ul>
+            <li>wash and set</li>
+            <li>hair cut/trim</li>
+            <li>hair color</li>
+            <li>press and curl/flat iron</li>
+            <li>updos</li>
+            <li>protective hairstyles</li>
+            <li>hair treatment with heat</li>
 
-            <div class="card-container">    
-                <div class = "topcard">
-                <img class="card-photo" src="public/images/scissors.jpg" alt="user"/>
-                </div>
-              
-                <div class="services">
-                  <h6>Services</h6>
-                  <ul>
-                    <li>hair cut/trim</li>
-                    <li>color</li>
-                    <li>hair treatment (with heat)</li>
-                    <li>braids (no extensions</li>
-                    <li>locs</li>
-                    <li>senegalese twists</li>
-                    <li>updos</li>
-                  </ul>
-                </div>
-            </div>
+          </ul>
+        </div>
+      </div>
 
-            <div class="card-container">    
-                <div class = "topcard">
-                <img class="card-photo" src="public/images/scissors.jpg" alt="user"/>
-                </div>
-              
-                <div class="services">
-                  <h6>Services</h6>
-                  <ul>
-                    <li>hair cut/trim</li>
-                    <li>color</li>
-                    <li>hair treatment (with heat)</li>
-                    <li>braids (no extensions</li>
-                    <li>locs</li>
-                    <li>senegalese twists</li>
-                    <li>updos</li>
-                  </ul>
-                </div>
-            </div>
+      <div class="card">
+        <img src="public/images/scissors.jpg"></img>
+        <div class="card-container">
+          <h2>Simply Erinn's Unisex Hair Salon</h2>
+          <p>268 Brookline St Cambridge, MA 02139</p>
+          <ul>
+            <li>wash and set</li>
+            <li>hair cut/trim</li>
+            <li>hair color</li>
+            <li>press and curl/flat iron</li>
+            <li>updos</li>
+            <li>protective hairstyles</li>
+            <li>hair treatment with heat</li>
 
-            <!-- <div class="card-container">
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="public/images/scissors.jpg"></img>
+        <div class="card-container">
+          <h2>Simply Erinn's Unisex Hair Salon</h2>
+          <p>268 Brookline St Cambridge, MA 02139</p>
+          <ul>
+            <li>wash and set</li>
+            <li>hair cut/trim</li>
+            <li>hair color</li>
+            <li>press and curl/flat iron</li>
+            <li>updos</li>
+            <li>protective hairstyles</li>
+            <li>hair treatment with heat</li>
+
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="public/images/scissors.jpg"></img>
+        <div class="card-container">
+          <h2>Simply Erinn's Unisex Hair Salon</h2>
+          <p>268 Brookline St Cambridge, MA 02139</p>
+          <ul>
+            <li>wash and set</li>
+            <li>hair cut/trim</li>
+            <li>hair color</li>
+            <li>press and curl/flat iron</li>
+            <li>updos</li>
+            <li>protective hairstyles</li>
+            <li>hair treatment with heat</li>
+
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="public/images/scissors.jpg"></img>
+        <div class="card-container">
+          <h2>Simply Erinn's Unisex Hair Salon</h2>
+          <p>268 Brookline St Cambridge, MA 02139</p>
+          <ul>
+            <li>wash and set</li>
+            <li>hair cut/trim</li>
+            <li>hair color</li>
+            <li>press and curl/flat iron</li>
+            <li>updos</li>
+            <li>protective hairstyles</li>
+            <li>hair treatment with heat</li>
+
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="public/images/scissors.jpg"></img>
+
+        <div class="card-container">
+          <h2>Le Petit Salon Curl Concept</h2>
+          <p>56 JFK Street, Cambridge, MA 02138 </p>
+          <ul>
+            <li>hair color</li>
+            <li>hair cut/trim</li>
+            <li>updos</li>
+            <li>protective hairstyles</li>
+            <li>bridal</li>
+            <li>hair treatment with heat</li>
+            <li>dry cut</li>
+            <li>Deva cut</li>
+
+          </ul>
+        </div>
+
+
+        
+      </div>
+
+    </div>
+
+
+  </div>
+  </div>
+
+
+
+  </div>
+
+  </div>
+
+
+  </div>
+
+  <!-- <div class="card-container">
                 
                     <img class="card-photo" src="https://randomuser.me/api/portraits/women/79.jpg" alt="user" />
                     <h3>Jane Doe</h3>
@@ -178,23 +340,29 @@
                       </ul>
                     </div>
               </div> -->
-            </div>
-     
-        <!-- large container div below-->
-        </div>
+  </div>
 
-    </div>
-    </article>
-    
-    </div>
+  <!-- large container div below-->
+  </div>
+  </div>
+  </div>
+  </div>
+</body>
 
-    <footer>
-        Copyright &copy;
-    </footer>
+<!-- </div> -->
 
+<footer>
+  Copyright &copy;
+</footer>
 
+<!-- bootstrap script -->
 
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+  integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> -->
 
 
 </body>
+
 </html>

@@ -1,195 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="public/styles/styles.css">
     <script src="https://kit.fontawesome.com/cd65848fa7.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com"> 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com"> 
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <title>Add a listing</title>
 </head>
+
 <body>
     <header>
         <div>
-        <h1>The Natural Hair Directory</h1>
-        <h4>GREATER BOSTON</h4>
+          <img src="public/images/main-background.png"
+            alt="A woman with braided hair and a the title 'The Natural Hair Directory, Greater Boston Area'">
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-                <li><a href="add.html">ADD A LISTING</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
-            </ul>
-        </nav>
-        <i class="fas fa-bars fa-2x" id = "hamburger-menu"></i>
-    </header>
-   
-    <form class = "form-submission" action="#">
+      </header>
+      <!-- Navbar content -->
+    
+      <nav class="topnav">
+    
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="add.html">ADD A LISTING</a>
+        <a href="contact.html">CONTACT</a>
+    
+      </nav>
 
-    <fieldset id="fieldset-1">
-        <legend>SUBMIT A LISTING</legend>
+    <div class="form-container" id = "add-listing">
 
-        <div id="next-arrows-pair">
-            <i class="fas fa-chevron-left"></i>
-            <i class="fas fa-chevron-right"></i>
+    <form action="#">
+
+            <h1>SUBMIT A LISTING</h1>
+
+                <!-- change html structure here -->
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="title" name="title" placeholder="Title">
             </div>
+            <div>
+                <label for="type">Business type:</label>
+                <select id="type" name="type">
+                    <option value="select" selected disabled>Select</option>
+                    <option value="salon">Salon</option>
+                    <option value="salon_stylist">Salon Stylist</option>
+                    <option value="independent">Independent Stylist</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" placeholder="123 Alphabet street, Boston, MA 02120">
+            </div>
+
+        <h2>Services: </h2>
+        <div id="services-checklist">
         
-        <div>
-        <label for="name">Name:</label>
-        <input type="text" id="title" name="title" placeholder="Title">
-        </div>
-        <div>
-        <label for="type">Business type:</label>
-        <select id="type" name="type">
-            <option value="select" selected disabled>Select</option>
-            <option value="salon">Salon</option>
-            <option value="salon_stylist">Salon Stylist</option>
-            <option value="independent">Independent Stylist</option>
-     </select>
+            <div>
+                <input type="checkbox" id="cut" name="cut" value="service">
+                <label for="service1"> Haircut/trim</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="cut" name="cut" value="service">
+                <label for="service1"> Updo</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="cut" name="cut" value="service">
+                <label for="service1"> Deva Cut</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="cut" name="cut" value="service">
+                <label for="service1"> Dry Cut</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                <label for="vehicle2"> Hair color</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                <label for="service1"> Blow Out</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                <label for="vehicle2"> Press and Curl/Flat Iron</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                <label for="vehicle2"> Twists (no extensions)</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                <label for="vehicle2"> Flat twists</label>
+            </div>
+            <div>
+                <input type="checkbox" id="cut" name="cut" value="service">
+                <label for="vehicle3"> corn rows</label>
+            </div>
+            <div>
+                <input type="checkbox" id="cut" name="cut" value="service">
+                <label for="vehicle3"> Braiding (no extensions)</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                <label for="vehicle2"> Senegalese twists</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                <label for="vehicle3"> Passion Twists</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="cut" name="cut" value="service">
+                <label for="vehicle3"> Braiding/twists (with extensions)</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="cut" name="cut" value="service">
+                <label for="service1"> Crochet</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="cut" name="cut" value="service">
+                <label for="service1"> Locs</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                <label for="vehicle2"> Sister Locs</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                <label for="service1"> Weave (sew-in)</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="cut" name="cut" value="service">
+                <label for="service1"> Wigs</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="cut" name="cut" value="service">
+                <label for="service1"> Hair treatment with heat</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="cut" name="cut" value="service">
+                <label for="service1"> Wash and dentangle</label>
+            </div>
+           
+            </fieldset>
         </div>
 
-        <div>
-        <label for="address">Address:</label>
-        <input type="text" id="address" name="address" placeholder="123 Alphabet street, Boston, MA 02120">
-        </div>
-    </fieldset>
 
-         <div id = "container-services">
-        <h4>Services: </h4>
+            <h2>Contact Info</h2>
+            <div>
+                <label for="website">Website</label>
+                <input type="text" id="website" name="website">
+            </div>
+            <div>
+                <label for="phone">Phone number</label>
+                <input type="text" id="phone" name="phone">
+            </div>
 
-        <div>
-         <input type="checkbox" id="cut" name="cut" value="service">
-         <label for="service1"> Haircut/trim</label>
-        </div>
-    
-        <div>
-         <input type="checkbox" id="cut" name="cut" value="service">
-         <label for="service1"> Deva Cut</label>
-        </div>
+        <!-- </fieldset> -->
 
-        <div>
-         <input type="checkbox" id="cut" name="cut" value="service">
-         <label for="service1"> Dry Cut</label>
-        </div>
+        <!-- <fieldset id="fieldset-3"> -->
 
-        <div>
-         <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-         <label for="vehicle2"> Hair color</label>
-        </div>
-
-        <div>
-         <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-         <label for="service1"> Blow Out</label>
-        </div>
-
-        <div>
-         <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-         <label for="vehicle2"> Press and Curl/Flat Iron</label>
-        </div>
-
-        <div>
-         <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-         <label for="vehicle2"> Twists (no extensions)</label>
-        </div>
-
-        <div>
-         <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-         <label for="vehicle2"> Flat twists</label>
-        </div>
-
-        <div>
-         <input type="checkbox" id="cut" name="cut" value="service">
-         <label for="vehicle3"> Braiding (no extensions)</label>
-        </div>
-
-        <div>
-         <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-         <label for="vehicle2"> Senegalese twists</label>
-        </div>
-
-        <div>
-         <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-         <label for="vehicle3"> Passion Twists</label>
-        </div> 
-
-        <div>
-         <input type="checkbox" id="cut" name="cut" value="service">
-         <label for="service1"> Locs</label>
-        </div>
-
-        <div>
-         <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-         <label for="vehicle2"> Sister Locs</label>
-        </div>
-
-        <div>
-         <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-         <label for="service1"> Weave (sew-in)</label>
-        </div>
-
-        <div>
-         <input type="checkbox" id="cut" name="cut" value="service">
-         <label for="service1"> Wigs</label>
-        </div>
-
-        <div>
-         <input type="checkbox" id="cut" name="cut" value="service">
-         <label for="service1"> Hair treatment with heat</label>
-        </div>
-
-        <div>
-         <input type="checkbox" id="cut" name="cut" value="service">
-         <label for="service1"> Wash and dentangle</label>
-        </div>
-        </fieldset>
-        </div>
-    
-    
-
-    <fieldset id="fieldset-2">
-        
-        <h4>Contact Info</h4>
-        <div>
-        <label for="website">Website</label>
-        <input type="text" id="website" name="website">
-        </div>
-        <div>
-        <label for="phone">Phone number</label>
-        <input type="text" id="phone" name="phone">
-        </div>
-        
-        <i class="fas fa-chevron-right"></i>
-    </fieldset>
-
-    <fieldset id ="fieldset-3">
-        <i class="fas fa-chevron-left"></i>
-
-        <h4>Social Media</h4>
-        <div class>
-            <label for="Instagram">Instagram <i class="fab fa-instagram"></i></label>
-            <input type="text" id="instagram" name="instagram">
-        </div>
-        <div>
-            <label for="Facebook">Facebook <i class="fab fa-facebook-f"></i></label>
-            <input type="text" id="Facebook" name="Facebook">
-        </div>
-        <div >
-            <label for="TikTok">TikTok <i class="fab fa-tiktok"></i></label>
-            <input type="text" id="Tiktok" name="tiktok">
-        </div>
-        <div>
-            <label for="twitter">Twitter <i class="fab fa-twitter"></i></label>
-            <input type="text" id="twitter" name="twitter">
-        </div>
-    </fieldset>
-
-  </form> 
+            <h2>Social Media</h2>
+            <div class>
+                <label for="Instagram">Instagram <i class="fab fa-instagram"></i></label>
+                <input type="text" id="instagram" name="instagram">
+            </div>
+            <div>
+                <label for="Facebook">Facebook <i class="fab fa-facebook-f"></i></label>
+                <input type="text" id="Facebook" name="Facebook">
+            </div>
+            <div>
+                <label for="TikTok">TikTok <i class="fab fa-tiktok"></i></label>
+                <input type="text" id="Tiktok" name="tiktok">
+            </div>
+            <div>
+                <label for="twitter">Twitter <i class="fab fa-twitter"></i></label>
+                <input type="text" id="twitter" name="twitter">
+            </div>
+   
+        <button class = "next-button">Back</button>
 
     </form>
+</div>
 </body>
+
 </html>

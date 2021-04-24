@@ -13,40 +13,44 @@
     <title>Add a listing</title>
 </head>
 <body>
-    <header>
-        <div>
-        <h1>The Natural Hair Directory</h1>
-        <h4>GREATER BOSTON</h4>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-                <li><a href="add.html">ADD A LISTING</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
-            </ul>
-        </nav>
-        <i class="fas fa-bars fa-2x" id = "hamburger-menu"></i>
-    </header>
+        <header>
+            <div>
+              <img src="public/images/main-background.png"
+                alt="A woman with braided hair and a the title 'The Natural Hair Directory, Greater Boston Area'">
+            </div>
+          </header>
+          <!-- Navbar content -->
+        
+          <nav class="topnav">
+        
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT</a>
+            <a href="add.html">ADD A LISTING</a>
+            <a href="contact.html">CONTACT</a>
+        
+          </nav>
 
-    <form class = "contact-form" action="#">
-        <legend>Contact</legend>
+    <div class = "form-container">
+    <form action="#">
+        <h1>Contact </h1>
 
-        <div>
+        
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" placeholder="Solange Knowles"><br>
-        </div>
+        
 
-        <div>
+        
         <label for="email">Email Address:</label>
         <input type="email" id="email" name="email" placeholder="sknowles@hotmail.com">
-        </div>
+        
 
-        <div>
+        
         <label for="contact_message">Message:</label>
-        <input type="textarea" id="contact_message" name="contact_message">
-        </div>
+        <input type="textarea" name="contact_message">
+        
 
         <div><button class = "submit-button">submit!</button></div>
+
+    </div>
 </body>
 </html>
