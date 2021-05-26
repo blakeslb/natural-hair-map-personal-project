@@ -35,13 +35,11 @@ h1, h2, h3, h4, h5, h6{
 }
 /* Styles header */
 header{
-
-    background-color: black;
+    height: 40%;
+    min-height: 350px;
     text-align: center;
     background:url("/public/images/main-background.png");
-    height: 35vh;
-    /* width: 100%; */
-    background-size: cover;
+    background-size: 100% auto;
     background-repeat: no-repeat;
    
 }
@@ -125,6 +123,7 @@ div.left-container li{
     height: 100%;
     margin: auto; 
     min-width: 600px;
+    
 
 }
 /* right container (search by service section) */
@@ -368,7 +367,9 @@ footer {
 @media screen and (max-width: 600px){
    
     header {
-        height: 40vh;
+        min-height: 500px;
+        background-size: cover; 
+        
     }
 
     .topnav {
@@ -413,7 +414,10 @@ footer {
 @media only screen and (min-width: 768px){
 
     header {
-        height: 600px;
+        min-height: 700px;
+        background-size: cover;
+         
+
     }
    
     .topnav {
