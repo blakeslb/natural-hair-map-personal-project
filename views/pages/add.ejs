@@ -1,55 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('../partials/head') -%>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="public/styles/styles.css">
-    <script src="https://kit.fontawesome.com/cd65848fa7.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-    <title>Add a listing</title>
-</head>
-
-<body>
-    <header>
-        <div>
-          <img src="public/images/main-background.png"
-            alt="A woman with braided hair and a the title 'The Natural Hair Directory, Greater Boston Area'">
-        </div>
-      </header>
-      <!-- Navbar content -->
-    
-      <nav class="topnav">
-    
-        <a href="index.html">HOME</a>
-        <a href="about.html">ABOUT</a>
-        <a href="add.html">ADD A LISTING</a>
-        <a href="contact.html">CONTACT</a>
-    
-      </nav>
 
     <div class="form-container" id = "add-listing">
 
-    <form action="#">
+    <form action="/add" method="POST">
 
             <h1>SUBMIT A LISTING</h1>
 
                 <!-- change html structure here -->
             <div>
-                <label for="name">Name:</label>
-                <input type="text" id="title" name="title" placeholder="Title">
+                <label for="fullName">Name:</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Full Name">
             </div>
             <div>
-                <label for="type">Business type:</label>
-                <select id="type" name="type">
+                <label for="business_type">Business type:</label>
+                <select id="business_type" name="business_type">
                     <option value="select" selected disabled>Select</option>
                     <option value="salon">Salon</option>
                     <option value="salon_stylist">Salon Stylist</option>
@@ -62,109 +27,114 @@
                 <input type="text" id="address" name="address" placeholder="123 Alphabet street, Boston, MA 02120">
             </div>
 
+            <div>
+                <label for="number">Number:</label>
+                <input type="text" id="number" name="number" placeholder="617-999-9999">
+            </div>
+
         <h2>Services: </h2>
         <div id="services-checklist">
         
             <div>
-                <input type="checkbox" id="cut" name="cut" value="service">
+                <input type="checkbox" id="cut" name="cut" value="haircut/trim">
                 <label for="service1"> Haircut/trim</label>
             </div>
 
             <div>
-                <input type="checkbox" id="cut" name="cut" value="service">
+                <input type="checkbox" id="updo" name="updo" value="updo">
                 <label for="service1"> Updo</label>
             </div>
 
             <div>
-                <input type="checkbox" id="cut" name="cut" value="service">
+                <input type="checkbox" id="devacut" name="devacut" value="deva cut">
                 <label for="service1"> Deva Cut</label>
             </div>
 
             <div>
-                <input type="checkbox" id="cut" name="cut" value="service">
+                <input type="checkbox" id="dryCut" name="dryCut" value="dry cut">
                 <label for="service1"> Dry Cut</label>
             </div>
 
             <div>
-                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                <input type="checkbox" id="hairColor" name="hairColor" value="hair color">
                 <label for="vehicle2"> Hair color</label>
             </div>
 
             <div>
-                <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                <input type="checkbox" id="blowOut" name="blowOut" value="blow out">
                 <label for="service1"> Blow Out</label>
             </div>
 
             <div>
-                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                <input type="checkbox" id="pressAndCurl" name="pressAndCurl" value="press and curl/flat iron">
                 <label for="vehicle2"> Press and Curl/Flat Iron</label>
             </div>
 
             <div>
-                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                <input type="checkbox" id="twists" name="twists" value="twists">
                 <label for="vehicle2"> Twists (no extensions)</label>
             </div>
 
             <div>
-                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                <input type="checkbox" id="flatTwists" name="flatTwists" value="flat twists">
                 <label for="vehicle2"> Flat twists</label>
             </div>
             <div>
-                <input type="checkbox" id="cut" name="cut" value="service">
+                <input type="checkbox" id="cornRows" name="cornRows" value="corn rows">
                 <label for="vehicle3"> corn rows</label>
             </div>
             <div>
-                <input type="checkbox" id="cut" name="cut" value="service">
+                <input type="checkbox" id="braiding" name="braiding" value="braiding">
                 <label for="vehicle3"> Braiding (no extensions)</label>
             </div>
 
             <div>
-                <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                <input type="checkbox" id="senegaleseTwists" name="senegaleseTwists" value="senegalese twists">
                 <label for="vehicle2"> Senegalese twists</label>
             </div>
 
             <div>
-                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                <input type="checkbox" id="passionTwists" name="passionTwists" value="passion twists">
                 <label for="vehicle3"> Passion Twists</label>
             </div>
 
             <div>
-                <input type="checkbox" id="cut" name="cut" value="service">
+                <input type="checkbox" id="braidingExtensions" name="braidingExtensions" value="braiding and twists with extensions">
                 <label for="vehicle3"> Braiding/twists (with extensions)</label>
             </div>
 
             <div>
-                <input type="checkbox" id="cut" name="cut" value="service">
+                <input type="checkbox" id="crochet" name="crochet" value="crochet">
                 <label for="service1"> Crochet</label>
             </div>
 
             <div>
-                <input type="checkbox" id="cut" name="cut" value="service">
+                <input type="checkbox" id="locs" name="locs" value="locs">
                 <label for="service1"> Locs</label>
             </div>
 
             <div>
-                <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                <input type="checkbox" id="sisterLocs" name="sisterLocs" value="sister locs">
                 <label for="vehicle2"> Sister Locs</label>
             </div>
 
             <div>
-                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                <input type="checkbox" id="weave" name="weave" value="weave">
                 <label for="service1"> Weave (sew-in)</label>
             </div>
 
             <div>
-                <input type="checkbox" id="cut" name="cut" value="service">
+                <input type="checkbox" id="wigs" name="wigs" value="wigs">
                 <label for="service1"> Wigs</label>
             </div>
 
             <div>
-                <input type="checkbox" id="cut" name="cut" value="service">
+                <input type="checkbox" id="hairTx" name="hairTx" value="hair treatment">
                 <label for="service1"> Hair treatment with heat</label>
             </div>
 
             <div>
-                <input type="checkbox" id="cut" name="cut" value="service">
+                <input type="checkbox" id="washDetangle" name="washDentangle" value="wash and detangle">
                 <label for="service1"> Wash and dentangle</label>
             </div>
            
@@ -181,6 +151,10 @@
                 <label for="phone">Phone number</label>
                 <input type="text" id="phone" name="phone">
             </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+            </div>
 
         <!-- </fieldset> -->
 
@@ -188,16 +162,16 @@
 
             <h2>Social Media</h2>
             <div class>
-                <label for="Instagram">Instagram <i class="fab fa-instagram"></i></label>
+                <label for="instagram">Instagram <i class="fab fa-instagram"></i></label>
                 <input type="text" id="instagram" name="instagram">
             </div>
             <div>
-                <label for="Facebook">Facebook <i class="fab fa-facebook-f"></i></label>
-                <input type="text" id="Facebook" name="Facebook">
+                <label for="Facebook">facebook <i class="fab fa-facebook-f"></i></label>
+                <input type="text" id="facebook" name="facebook">
             </div>
             <div>
-                <label for="TikTok">TikTok <i class="fab fa-tiktok"></i></label>
-                <input type="text" id="Tiktok" name="tiktok">
+                <label for="tikTok">TikTok <i class="fab fa-tiktok"></i></label>
+                <input type="text" id="tiktok" name="tiktok">
             </div>
             <div>
                 <label for="twitter">Twitter <i class="fab fa-twitter"></i></label>
@@ -208,6 +182,4 @@
 
     </form>
 </div>
-</body>
-
-</html>
+<%- include('../partials/footer') -%>
