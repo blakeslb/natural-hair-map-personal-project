@@ -4,13 +4,14 @@ const Stylist = require('../models/stylistModel');
 module.exports = {
   //home page
   index_get: (request, response) => {
-    Stylist.find({}, (error, allStylists) => {
-      if (error) {
-        return error;
-      } else {
-        response.render('pages/index', { listing: allStylists });
-      }
-    })
+    // Stylist.find({}, (error, allStylists) => {
+    //   if (error) {
+    //     return error;
+    //   } else {
+    //     response.render('pages/index', { listing: allStylists });
+    //   }
+    // })
+    response.render('pages/index');
   },
 
   //about page

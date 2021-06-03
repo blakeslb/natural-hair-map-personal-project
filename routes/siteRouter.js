@@ -16,10 +16,10 @@ router.route('/about')
 
 router.route('/contact')
     .get(siteController.contact_get)
-    // .post()
+//     // .post()
 
 router.route('/add')
     .get(siteController.add)
-    .post(siteController.add_post);
+//     .post(siteController.add_post);
 
 module.exports = router; 

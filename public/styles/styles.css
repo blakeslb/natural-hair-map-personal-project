@@ -38,17 +38,12 @@ header{
     height: 40%;
     min-height: 350px;
     text-align: center;
-    background:url("/public/images/main-background.png");
+    background:url("/images/main-background.png");
     background-size: 100% auto;
     background-repeat: no-repeat;
    
 }
 
-header img {
-    width: 100%;
-    max-width: 1500px;
-
-}
 /* ----------------- */
 
 
@@ -212,7 +207,7 @@ div.card-container{
    
     margin: auto;
     max-width: 900px;
-    background-image: url("/public/images/about-background.png");
+    background-image: url("/images/about-background.png");
     background-repeat: no-repeat;
     background-position: left top;
     background-size: 800px;
@@ -257,7 +252,7 @@ div.form-container {
     margin-top: 50px;
     width: 90%;
     max-width: 800px;
-    background-image: url("/public/images/cbackground.png");
+    background-image: url("/images/cbackground.png");
     background-repeat: no-repeat; 
     background-position: center; 
     background-color: var(--blue);
@@ -266,7 +261,7 @@ div.form-container {
 
 /* changes background for add listing form */
 div#add-listing{
-    background-image: url(/public/images/addbackground.png);
+    background-image: url(/images/addbackground.png);
     background-repeat: no-repeat; 
     background-position: right bottom; 
     background-color: #2caead;
