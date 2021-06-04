@@ -1,16 +1,11 @@
 const { response } = require('express');
 const Stylist = require('../models/stylistModel');
+const Marker = require('../models/markerModel')
 
 module.exports = {
   //home page
   index_get: (request, response) => {
-    // Stylist.find({}, (error, allStylists) => {
-    //   if (error) {
-    //     return error;
-    //   } else {
-    //     response.render('pages/index', { listing: allStylists });
-    //   }
-    // })
+
     response.render('pages/index');
   },
 
@@ -30,12 +25,11 @@ module.exports = {
   },
 
   add_post: (request, response) => {
-    const { fullName, business_type, address, services, website, phone, email, instagram, facebook, tiktok, twitter } = request.body;
+    const { fullName, business_type, address, website, phone, email, instagram, facebook, tiktok, twitter } = request.body;
     const newStylist = new Stylist({
       fullName: fullName,
       business_type: business_type,
       address: address,
-      services: services,
       website: website,
       phone: phone,
       email: email,

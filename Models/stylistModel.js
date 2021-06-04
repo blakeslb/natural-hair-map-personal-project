@@ -37,7 +37,11 @@ const stylistSchema = new Schema({
         type: String
     },
     twitter: {
-        type: String
+        type: String,
+
+    isApproved: {
+        type: Boolean, 
+    }
     }});
 
 const Stylist = mongoose.model('Stylist', stylistSchema);

@@ -21,5 +21,6 @@ router.route('/contact')
 router.route('/add')
     .get(siteController.add)
 //     .post(siteController.add_post);
+    .post(siteController.add_post);
 
 module.exports = router; 

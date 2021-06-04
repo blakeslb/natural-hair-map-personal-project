@@ -8,16 +8,20 @@ router.route('/')
     //admin page
     .get(adminController.admin_get)
     //listings submitted by user go here
-    .post(adminController.admin_post)
+    // .post(adminController.admin_post)
 
-router.route('/review')
+// router.route('/review')
     //admin review page (has form)
     .get(adminController.review_get);
     //
     //.put(adminController.review_put);
 
+    router.route('/add')
+    .get(adminController.admin_add); 
+
 
     module.exports = router; 
 
+    
 
 
