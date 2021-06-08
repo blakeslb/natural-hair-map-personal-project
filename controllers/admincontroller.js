@@ -14,6 +14,8 @@ module.exports = {
 
     //about page
     admin_post: (request, response) => {
+
+        
         response.render('pages/about');
     },
 

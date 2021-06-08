@@ -5,6 +5,7 @@ const siteController = require('../controllers/sitecontroller');
 
 router.route('/')
     .get(siteController.index_get)
+    
     // .post(siteController.index_post);
 
 // router.route('/:id')

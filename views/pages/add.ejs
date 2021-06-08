@@ -1,13 +1,13 @@
 <%- include('../partials/head') -%>
 
 
-    <div class="form-container" id = "add-listing">
+    <div class="form-container" id="add-listing">
 
-    <form action="/add" method="POST">
+        <form action="/add/" method="POST">
 
             <h1>SUBMIT A LISTING</h1>
 
-                <!-- change html structure here -->
+            <!-- change html structure here -->
             <div>
                 <label for="fullName">Name:</label>
                 <input type="text" id="fullName" name="fullName" placeholder="Full Name">
@@ -24,19 +24,34 @@
 
             <div>
                 <label for="address">Address:</label>
-                <input type="text" id="address" name="address" placeholder="123 Alphabet street, Boston, MA">
+                <input id="address" name ="address" type="text" placeholder="123 Main St Boston MA" />
+                <!-- <input id="submit" type="button" value="Geocode" /> -->
             </div>
-            <div id="errMessage"><p>
+            <div id="errMessage">
+                <p> </p>
+            </div>
+            <div>
+                <input type="text" id="coords" name="coords" class="hidden">
+            </div>
+            <div>
+                <input type="text" id="lat" name="lat" class="hidden">
+            </div>
+            <div>
+                <input type="text" id="lang" name="lang" class="hidden">
+            </div>
 
-            </p></div>
+            <div>
+                <label for="website">Website:</label>
+                <input type="text" id="website" name="website" placeholder="hairsalon.com">
+            </div>
 
             <div>
                 <label for="number">Number:</label>
                 <input type="text" id="number" name="number" placeholder="617-999-9999">
             </div>
 
-            
-<!-- 
+
+            <!-- 
         <h2>Services: </h2>
         <div id="services-checklist">
         
@@ -161,9 +176,9 @@
                 <input type="email" id="email" name="email">
             </div> -->
 
-        <!-- </fieldset> -->
+            <!-- </fieldset> -->
 
-        <!-- <fieldset id="fieldset-3"> -->
+            <!-- <fieldset id="fieldset-3"> -->
 
             <h2>Social Media</h2>
             <div class>
@@ -182,9 +197,24 @@
                 <label for="twitter">Twitter <i class="fab fa-twitter"></i></label>
                 <input type="text" id="twitter" name="twitter">
             </div>
-   
-        <button class = "next-button">Back</button>
 
-    </form>
-</div>
-<%- include('../partials/footer') -%>
+            <input type="submit" value="Submit">
+        </form>
+
+
+        <!-- this need to be here, but hidden  -->
+        <div id="map" class="hidden"> </div>
+
+        <!-- <div>
+        <input id="address" type="textbox" value="Sydney, NSW" />
+        <input id="submit" type="button" value="Geocode" />
+      </div> -->
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKEZCz730qwqKPlvJkYEMWkXfqPPR2zeA&callback=initMap&libraries=&v=weekly"
+            async></script>
+
+
+    </div>
+
+
+    <%- include('../partials/footer') -%>

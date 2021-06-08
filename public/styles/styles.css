@@ -121,6 +121,9 @@ div.left-container li{
     
 
 }
+.hidden{
+    display:none; 
+}
 /* right container (search by service section) */
 .right-container{
     flex: 0 1 calc(25% - 1em);
@@ -268,6 +271,15 @@ div#add-listing{
     background-size: 900px;
 }
 
+/* Error Message for geocoding failure */
+#errMessage p {
+    color: rgb(145, 43, 43);
+    font-size: .8rem; 
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+}
+
 form{
     width: 100%;
     padding: 20px; 
@@ -339,22 +351,35 @@ form select {
 
 /* footer */
 footer {
-        background-color: #222;
-        color: black;
+        background-color: #333;
+        color: white; 
         font-size: 14px;
-        width: 100vw;
-        height: 50px;
+        width: auto;
+        height: 200px;
         text-align: center; 
         
         bottom: 0;
         left: 0;
         right: 0;
-        margin: 0;
+        margin-top: 20px; 
     }
     
+    footer ul {
+        list-style-type: none; 
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
     
     footer a {
         text-decoration: none;
+
+    }
+    footer li a{
+        color: white; 
+    }
+    footer li {
+        padding: 50px; 
     }
 
 

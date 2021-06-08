@@ -1,4 +1,3 @@
-// const { response } = require('express');
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
@@ -17,12 +16,16 @@ const stylistSchema = new Schema({
         required: [true, 'The address is required'],
     },
 
+    coords: {
+        type: String,
+        
+    },
+
     website: {
         type: String
     },
     phone: {
         type: String,
-        min: [0, 'Minimum length of digits is 10']
     },
     email: {
         type: String
@@ -38,15 +41,13 @@ const stylistSchema = new Schema({
     },
     twitter: {
         type: String,
-
+    },
     isApproved: {
-        type: Boolean, 
+        type: Boolean,
     }
-    }});
+   
+    });
 
 const Stylist = mongoose.model('Stylist', stylistSchema);
-
-
-
 
 module.exports = Stylist;

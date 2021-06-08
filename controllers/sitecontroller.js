@@ -1,12 +1,18 @@
 const { response } = require('express');
 const Stylist = require('../models/stylistModel');
-const Marker = require('../models/markerModel')
+// const Marker = require('../models/markerModel')
 
 module.exports = {
   //home page
   index_get: (request, response) => {
-
-    response.render('pages/index');
+    Stylist.find({}, (error, allStylists) => {
+      if (error) {
+        return error;
+    } else {
+        response.render('pages/index', { data: allStylists });
+    }
+    })
+  
   },
 
   //about page
@@ -25,23 +31,33 @@ module.exports = {
   },
 
   add_post: (request, response) => {
-    const { fullName, business_type, address, website, phone, email, instagram, facebook, tiktok, twitter } = request.body;
     const newStylist = new Stylist({
-      fullName: fullName,
-      business_type: business_type,
-      address: address,
-      website: website,
-      phone: phone,
-      email: email,
-      instagram: instagram,
-      twitter: twitter,
-      facebook: facebook,
-      tiktok: tiktok
-
-
+      fullName: request.body.fullName,
+      business_type: request.body.business_type,
+      address: request.body.address,
+      website: request.body.website,
+      phone: request.body.phone,
+      email: request.body.email,
+      instagram: request.body.instagram,
+      twitter: request.body.twitter,
+      facebook: request.body.facebook,
+      tiktok: request.body.tiktok,
+      coords: request.body.coords,
+      isApproved: request.body.false
     });
-    newStylist.save();
-    response.redirect('/');
+    // newStylist.save();
+    newStylist.save(function(err){
+      if(err){
+           console.log(err);
+           return;
+      }
+    })
+
+    // console.log("it worked!")
+    // response.send(request.body);
+    response.send(newStylist);
+
+    // response.redirect('/');
 
   }
 }

@@ -7,6 +7,8 @@ const routes = require('./routes/index');
 require('./config/connection');
 const app = express();
 const PORT = 3000;
+// const bodyParser = require("body-parser");
+
 
 app.set('view engine', 'ejs');
 

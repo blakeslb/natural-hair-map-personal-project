@@ -17,7 +17,8 @@ router.route('/')
     //.put(adminController.review_put);
 
     router.route('/add')
-    .get(adminController.admin_add); 
+    .get(adminController.admin_add)
+    .post(adminController.admin_post);
 
 
     module.exports = router; 
