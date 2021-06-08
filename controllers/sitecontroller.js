@@ -54,7 +54,11 @@ module.exports = {
     })
 
 
-    response.redirect('/');
+    response.redirect('/submission-confirmation');
 
+  },
+
+  confirm: (request, response) => {
+    response.render('pages/sub-message');
   }
 }

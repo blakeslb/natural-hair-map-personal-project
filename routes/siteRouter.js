@@ -24,4 +24,8 @@ router.route('/add')
 //     .post(siteController.add_post);
     .post(siteController.add_post);
 
+router.route('/submission-confirmation')
+    .get(siteController.confirm);
+
+
 module.exports = router; 

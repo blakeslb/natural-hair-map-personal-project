@@ -247,6 +247,20 @@ div.card-container{
 
 }
 
+#confirmationPage {
+    margin-top: 50px;
+    width: 90%;
+    max-width: 800px;
+    background-color:#1D939E;
+    text-align: center; 
+    margin: 50px auto;
+    padding: 30px;
+      
+
+    
+
+}
+
 /* Forms Styling*/
 
 div.form-container {
@@ -355,7 +369,7 @@ footer {
         color: white; 
         font-size: 14px;
         width: auto;
-        height: 200px;
+        height: 100px;
         text-align: center; 
         
         bottom: 0;
@@ -364,22 +378,9 @@ footer {
         margin-top: 20px; 
     }
     
-    footer ul {
-        list-style-type: none; 
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-    
-    footer a {
-        text-decoration: none;
-
-    }
-    footer li a{
-        color: white; 
-    }
-    footer li {
-        padding: 50px; 
+footer h3 {
+    padding: 30px; 
+    font-weight: 200;
     }
 
 

@@ -235,6 +235,7 @@
 
                         document.getElementById("coords").value = results[0].geometry.location;
 
+
                     } else {
                         document.querySelector('#errMessage p').innerText = `Geocode was not successful for the following reason: ${status}. Enter address with format: 10 Main St Boston MA`;
                         document.getElementById("coords").value = null;
