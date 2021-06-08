@@ -154,26 +154,33 @@ div#markerContent h1 {
 div.lcards {
     display: flex;
     flex-wrap: wrap; 
-    justify-content: space-evenly;
+    justify-content: space-around;
     background-color: var(--softgrey);
     overflow: hidden; 
     padding-top: 30px; 
     margin-top: 20px; 
+    background-image: url("/images/backgroundcircles.jpg");
+    /* background-size: cover; */
 
 }
 
 div.card {
-    min-width: 500px;
+
+    display: flex;
+    flex-direction: column;
+    margin: 50px auto;
+    align-items: center;
+    width: 70%;
+    height: auto;
     flex: 0 1 calc(25% - 1em);
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.1);
     transition: 0.3s;
     margin: 10px 0px;
-    background-color: var(--blue);
     border: 3px solid var(--headerblue);
-    border-bottom: none; 
-    border-radius: 25px;
-
+    background-color: var(--softgrey);
+    border-radius: 10px;
 }
+
 div.card h2 {
     font-size: 2rem;
     font-weight: 300

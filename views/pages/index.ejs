@@ -43,6 +43,8 @@ let data = <%- JSON.stringify(data) %>;
 
           for(each of data) {
 
+            if (each.isApproved)  {
+
             latLng=each.coords;
             latLng = latLng.replace("(", "");
             latLng = latLng.replace(")", "");
@@ -52,11 +54,13 @@ let data = <%- JSON.stringify(data) %>;
             long = Number(latLng[1])
 
             console.log(latLng);
+
           
          const marker = new google.maps.Marker({
           position: new google.maps.LatLng(lat, long),
           map,
             title: each.fullName,
+            
           });
 
 
@@ -75,20 +79,27 @@ let data = <%- JSON.stringify(data) %>;
           });
           marker.addListener("click", () => {
           infowindow.open(map, marker);
-
-          
-  });
-  
-
-          
+     
+        });
+      }
         } //closes loop
-
 
         } //close init map function
         
       </script>
 
+
+
       
+    </div>
+
+    <div class = "lcards">
+      <% data.forEach(stylist => { %>
+        <%- include('../partials/marker', {stylist: stylist}) -%>
+                <% }); %>
+
+
+
     </div>
 
     <!-- right container directory listing section -->
