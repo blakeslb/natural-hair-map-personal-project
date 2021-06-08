@@ -19,26 +19,43 @@
       <div id="map"> </div>
 
       <script>
-      let data = <%- JSON.stringify(data) %>;
+
 
     const boston = { lat: 42.3601, lng: -71.0589 };
-    const map = new google.maps.Map(document.getElementById("map"), {
+  //   const map = new google.maps.Map(document.getElementById("map"), {
+  //   zoom: 12,
+  //   center: boston,
+  // });
+
+let map;
+function initMap() {
+  const boston = { lat: 42.3601, lng: -71.0589 };
+  const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 12,
     center: boston,
   });
+  new google.maps.Marker({
+    position: boston,
+    map,
+    title: "Hello World!",
+  });
+}
+
+
+      let data = <%- JSON.stringify(data) %>;
 
 
 
-       for(each of data) { 
-         each.addMarker({ const marker =new google.maps.Marker({ 
-          position: each.coords, 
-           map: map, 
-          title: each.fullName 
-           }) 
-           } )
-          }
+
+      //  for(each of data) { 
+      //    each.addMarker({ marker = new google.maps.Marker({ 
+      //     position: each.coords, 
+      //      map: map, 
+      //     title: each.fullName 
+      //      }) 
+      //      } )
+          // }
        
-
         </script>
     
      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKEZCz730qwqKPlvJkYEMWkXfqPPR2zeA&callback=initMap&libraries=&v=weekly"

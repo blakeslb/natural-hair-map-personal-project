@@ -53,11 +53,8 @@ module.exports = {
       }
     })
 
-    // console.log("it worked!")
-    // response.send(request.body);
-    response.send(newStylist);
 
-    // response.redirect('/');
+    response.redirect('/');
 
   }
 }
