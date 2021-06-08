@@ -53,33 +53,39 @@ let data = <%- JSON.stringify(data) %>;
 
             console.log(latLng);
           
-          new google.maps.Marker({
+         const marker = new google.maps.Marker({
           position: new google.maps.LatLng(lat, long),
-
           map,
-            title: "Hello World!",
+            title: each.fullName,
+          });
+
+
+          const contentString =
+    `<div id="markerContent">` +
+    `<h1>${each.fullName}</h1>` +
+    `<div><p>${each.address}</p></div>` +
+    `<div><a href = ${each.website}>${each.website}</div>` +
+  
+    "</div>";
+       
+
+          const infowindow = new google.maps.InfoWindow({
+          content: contentString
           
           });
-          // console.log("helo")
-        }
+          marker.addListener("click", () => {
+          infowindow.open(map, marker);
+
+          
+  });
+  
+
+          
+        } //closes loop
 
 
-        }
+        } //close init map function
         
-
-      
-
-      
-        // for (each of data) {
-
-        //   let marker = new google.maps.Marker({
-        //     position: data.coords,
-        //     map,
-        //     title: data.fullName,
-        //   });
-
-        // }
-
       </script>
 
       
