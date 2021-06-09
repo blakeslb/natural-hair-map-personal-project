@@ -1,19 +1,31 @@
 <%- include('../partials/head') -%>
 
 
+<!-- <div class="container"> -->
+  
+  <div id = "admin-table">
+      <table class="admin">
+          <tr>
+              <th>Salon </th>
+              <th>Is Approved?</th>
+              <th>Review</th>
+          </tr>
+       
+          <% data.forEach(stylist => { %>
+            <%- include('../partials/marker', {stylist: stylist}) -%>
+                    <% }); %>
+          
+        
+      </table>
+  </div>
+<!-- </div> -->
 
-<p>Admin page</p>
 
-<p>All listings</p>
-<p>Add a listing>
 
-    <div id="floating-panel">
-        <input id="address" type="textbox" value="Sydney, NSW" />
-        <input id="submit" type="button" value="Geocode" />
-      </div>
-      <div id="map"></div>
+<!-- <p>Admin page</p>
 
-<p></p>
+  
+
 
 
 

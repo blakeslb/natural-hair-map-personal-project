@@ -44,7 +44,8 @@ let data = <%- JSON.stringify(data) %>;
           for(each of data) {
 
             if (each.isApproved)  {
-
+              if (each.coords) {
+            
             latLng=each.coords;
             latLng = latLng.replace("(", "");
             latLng = latLng.replace(")", "");
@@ -81,6 +82,7 @@ let data = <%- JSON.stringify(data) %>;
           infowindow.open(map, marker);
      
         });
+      } //closes loop for coords check 
       }
         } //closes loop
 
@@ -93,16 +95,6 @@ let data = <%- JSON.stringify(data) %>;
       
     </div>
 
-    <div class = "lcards">
-      <% data.forEach(stylist => { %>
-        <%- include('../partials/marker', {stylist: stylist}) -%>
-                <% }); %>
-
-
-
-    </div>
-
-    <!-- right container directory listing section -->
-    <!-- <%- include('../partials/listing') -%> -->
-  </div>
+   
+  
   <%- include('../partials/footer') -%>

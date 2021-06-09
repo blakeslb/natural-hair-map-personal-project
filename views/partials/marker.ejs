@@ -1,10 +1,9 @@
+<!-- for admin table -->
 
 
-
-   <div class = "card">
-
-<h2><%= stylist.fullName %></h2>
-<p>by <%= stylist.website %></p>
-
-
-</div>
+<tr>
+   <td><%= stylist.fullName %> </td>
+   <td><%= stylist.isApproved %></td>
+   <td>  <button><a href="/admin/approve/<%= stylist._id %>">Approve</a></button>
+   </div></td>
+</tr>

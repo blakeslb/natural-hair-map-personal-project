@@ -43,7 +43,7 @@ module.exports = {
       facebook: request.body.facebook,
       tiktok: request.body.tiktok,
       coords: request.body.coords,
-      isApproved: request.body.false
+      isApproved: false 
     });
     // newStylist.save();
     newStylist.save(function(err){
