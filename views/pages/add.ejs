@@ -1,11 +1,10 @@
 <%- include('../partials/head') -%>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKEZCz730qwqKPlvJkYEMWkXfqPPR2zeA&callback=initMap&libraries=&v=weekly"
-async></script>
+
 
 
 
     <div class="form-container" id="add-listing">
-        
+
 
         <form action="/add/" method="POST">
 
@@ -206,7 +205,8 @@ async></script>
         </form>
 
 
-       
+
+
 
         <!-- this need to be here, but hidden  -->
         <div id="map" class="hidden"> </div>
@@ -238,13 +238,14 @@ async></script>
                 });
             }
         </script>
-        
-        
-        
+
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKEZCz730qwqKPlvJkYEMWkXfqPPR2zeA&callback=initMap&libraries=&v=weekly"></script>
+
 
     </div>
 
-   
+
 
 
     <%- include('../partials/footer') -%>

@@ -43,7 +43,7 @@ let data = <%- JSON.stringify(data) %>;
 
           for(each of data) {
 
-            if (each.isApproved)  {
+            if (each.isApproved == true)  {
               if (each.coords) {
             
             latLng=each.coords;

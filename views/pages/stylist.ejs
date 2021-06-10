@@ -1,97 +1,133 @@
+<%- include('../partials/head') -%>
 
 
-<div id="edit-listing">
-        
-<!-- adjust this route -->
-    <form action="/admin/approve/<%= stylist.id %>?_method=PUT" method="POST">
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKEZCz730qwqKPlvJkYEMWkXfqPPR2zeA&callback=initMap&libraries=&v=weekly"
+        async></script>
 
-        <h1>Review this listing</h1>
+    <div id="edit-listing">
 
-        <!-- change html structure here -->
-        <div>
-            <label for="fullName">Name:</label>
-            <input type="text" id="fullName" name="fullName" value = "<%=stylist.fullName%>">
-        </div>
-        <div>
+        <!-- adjust this route -->
+        <form action="/admin/approve/<%= stylist.id %>?_method=PUT" method="POST">
 
-            Business type: <%= stylist.business_type %>
+            <h1>Review this listing</h1>
 
-    </div>
-
-        <div>
-            <label for="address">Address:</label>
-            <input id="address" name="address" type="text" value = "<%=stylist.address%>" />
-            <!-- <input id="submit" type="button" value="Geocode" /> -->
-        </div>
-        <div id="errMessage">
-            <p> </p>
-        </div>
-       
-        <div>
-            <label for="website">Website:</label>
-            <input type="text" id="website" name="website" value = "<%=stylist.website%>">
-        </div>
-
-        <div>
-            <label for="number">Number:</label>
-            <input type="text" id="number" name="number" value = "<%=stylist.phone%>">
-        </div>
+            <!-- change html structure here -->
+            <div>
+                <label for="fullName">Name:</label>
+                <input type="text" id="fullName" name="fullName" value="<%=stylist.fullName%>">
+            </div>
 
 
-        <h2>Social Media</h2>
-        <div class>
-            <label for="instagram">Instagram <i class="fab fa-instagram"></i></label>
-            <input type="text" id="instagram" name="instagram" value = "<%=stylist.instagram%>">
-        </div>
-        <div>
-            <label for="Facebook">facebook <i class="fab fa-facebook-f"></i></label>
-            <input type="text" id="facebook" name="facebook" value = "<%=stylist.facebook%>">
-        </div>
-        <div>
-            <label for="tikTok">TikTok <i class="fab fa-tiktok"></i></label>
-            <input type="text" id="tiktok" name="tiktok" value = "<%=stylist.tiktok%>">
-        </div>
-        <div>
-            <label for="twitter">Twitter <i class="fab fa-twitter"></i></label>
-            <input type="text" id="twitter" name="twitter" value = "<%=stylist.twitter%>">
-        </div>
-        <!-- <div>
+            <div>
+                <label for="business_type">Business type:</label>
+                <select id="business_type" name="business_type">
+                    <option value="select" selected disabled>Select</option>
+                    <option value="salon">Salon</option>
+                    <option value="salon_stylist">Salon Stylist</option>
+                    <option value="independent">Independent Stylist</option>
+                </select>
+            </div>
+
+
+            <div>
+                <label for="address">Address:</label>
+                <input id="address" name="address" type="text" value="<%=stylist.address%>" />
+                <!-- <input id="submit" type="button" value="Geocode" /> -->
+
+                <div id="errMessage">
+                    <p> </p>
+                </div>
+                <div>
+                    <input type="text" id="coords" name="coords">
+                </div>
+
+                <div>
+                    <label for="website">Website:</label>
+                    <input type="text" id="website" name="website" value="<%=stylist.website%>">
+                </div>
+
+                <div>
+                    <label for="number">Number:</label>
+                    <input type="text" id="number" name="number" value="<%=stylist.phone%>">
+                </div>
+
+
+                <h2>Social Media</h2>
+                <div class>
+                    <label for="instagram">Instagram <i class="fab fa-instagram"></i></label>
+                    <input type="text" id="instagram" name="instagram" value="<%=stylist.instagram%>">
+                </div>
+                <div>
+                    <label for="Facebook">facebook <i class="fab fa-facebook-f"></i></label>
+                    <input type="text" id="facebook" name="facebook" value="<%=stylist.facebook%>">
+                </div>
+                <div>
+                    <label for="tikTok">TikTok <i class="fab fa-tiktok"></i></label>
+                    <input type="text" id="tiktok" name="tiktok" value="<%=stylist.tiktok%>">
+                </div>
+                <div>
+                    <label for="twitter">Twitter <i class="fab fa-twitter"></i></label>
+                    <input type="text" id="twitter" name="twitter" value="<%=stylist.twitter%>">
+                </div>
+                <!-- <div>
             <label for="isApproved">is Approved?</label>
             <input type="text" id="isApproved" name="isApproved" value = <%=stylist.isApproved%>>
         </div> -->
-        <div>
-            <input type="radio" id="isApproved" name="isApproved" value= "false">
-<label for="false">false</label><br>
-<input type="radio" id="isApproved" name="isApproved" value= true>
-<label for= "true">true</label><br>
-        </div>
+
+                <div id="checkboxInput">
+                    <div>
+                        <label for="false">false</label>
+
+                        <input type="radio" id="notApproved" name="isApproved" value="false">
+                    </div>
+                    <label for="true">true</label>
+
+                    <input type="radio" id="isApproved" name="isApproved" value=true>
+                </div>
+
+
+
+            </div>
+
+
+            <input type="submit" value="Submit">
+        </form>
+
+
+
+        <div id="map" class="hidden"> </div>
+        <script>
+            let map;
+            function initMap() {
+                const boston = { lat: 42.3601, lng: -71.0589 };
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 12,
+                    center: boston,
+                });
+            }
+            const address = document.querySelector("#address");
+            const geocoder = new google.maps.Geocoder();
+            document.getElementById("address").addEventListener("blur", () => {
+                geocodeAddress(geocoder, map);
+            });
+            //grabs address from text inpute field, and then geocodes/grads coords?
+            function geocodeAddress(geocoder, resultsMap) {
+                const address = document.getElementById("address").value;
+                geocoder.geocode({ address: address }, (results, status) => {
+                    if (status === "OK") {
+                        document.querySelector('#errMessage p').innerText = `Geocode successful!`;
+                        document.getElementById("coords").value = results[0].geometry.location;
+                    } else {
+                        document.querySelector('#errMessage p').innerText = `Geocode was not successful for the following reason: ${status}. Enter address with format: 10 Main St Boston MA`;
+                        document.getElementById("coords").value = null;
+                    }
+                });
+            }
+        </script>
+
+
 
 
     </div>
-
-
-        <input type="submit" value="Submit">
-    </form>
-
-
-
-<!-- <div id = "admin-list"><ul>
-    <li>Name: <%=stylist.fullName %> </li>
-    <li>Website: <%=stylist.website %> </li>
-    <li>Address: <%=stylist.address%></li>
-
-    <li>Coordinates: <%=stylist.coords%></li>
-
-    <li>Phone Number: <%=stylist.phone%> </li>
-
-    <li>Instagram: <%=stylist.instagram%></li>
-
-    <li>Facebook: <%=stylist.facebook%></li>
-    <li>Twitter: <%=stylist.twitter%></li>
-    <li>Approval status: <%=stylist.isApproved%></li>
-
-</ul> -->
-
-
-
-</div>
+    <%- include('../partials/footer') -%>

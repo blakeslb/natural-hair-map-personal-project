@@ -36,7 +36,7 @@ module.exports = {
       business_type: request.body.business_type,
       address: request.body.address,
       website: request.body.website,
-      phone: request.body.phone,
+      phone: request.body.number,
       email: request.body.email,
       instagram: request.body.instagram,
       twitter: request.body.twitter,
@@ -45,6 +45,7 @@ module.exports = {
       coords: request.body.coords,
       isApproved: false 
     });
+    
     // newStylist.save();
     newStylist.save(function(err){
       if(err){

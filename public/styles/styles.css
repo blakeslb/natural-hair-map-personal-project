@@ -5,7 +5,7 @@
     --headerfont:'Poppins', sans-serif;
     --bodyfont: 'Raleway', sans-serif;
     --buttoncolor: #79d9c1;
-    --cardbckrnd: #D98B79;
+    --buttoncolorRed: #D98B79;
     --carditems: #79d9c1;
     --formcolor: #d4b4d9;
     --lightborder: lightgrey; 
@@ -374,6 +374,18 @@ div#admin-table table, th, td{
     border: 1px solid black;
     border-collapse: collapse;
     margin: 10% auto; 
+    padding: 10px;
+}
+button#review-button {
+    background-color: var(--yellow);
+    border-radius: 5px;
+    border: 1px solid rgb(187, 187, 37)
+}
+#review-button a {
+    padding: 10px; 
+}
+#review-button a:visited {
+    color: var(blue)
 
 }
 
@@ -383,6 +395,11 @@ div #edit-listing {
          background-color: #2caead;
     background-size: 900px;
 
+
+}
+/* check boxes on admin review page */
+#checkboxInput input {
+    display: inline; 
 
 }
 /* div#admin-list {

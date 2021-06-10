@@ -60,7 +60,7 @@ module.exports = {
             facebook: request.body.facebook,
             tiktok: request.body.tiktok,
             twitter: request.body.twitter,
-            isApproved: request.body.isApproved
+            isApproved: (request.body.isApproved  === "true")
 
 		}}, {new: true}, error => {
 			if(error) {
