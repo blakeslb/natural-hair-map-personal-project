@@ -1,10 +1,6 @@
 <%- include('../partials/head') -%>
 
-
-
-
     <div class="form-container" id="add-listing">
-
 
         <form action="/add/" method="POST">
 
@@ -54,135 +50,6 @@
             </div>
 
 
-            <!-- 
-        <h2>Services: </h2>
-        <div id="services-checklist">
-        
-            <div>
-                <input type="checkbox" id="cut" name="cut" value="haircut/trim">
-                <label for="service1"> Haircut/trim</label>
-            </div>
-
-            <div>
-                <input type="checkbox" id="updo" name="updo" value="updo">
-                <label for="service1"> Updo</label>
-            </div>
-
-            <div>
-                <input type="checkbox" id="devacut" name="devacut" value="deva cut">
-                <label for="service1"> Deva Cut</label>
-            </div>
-
-            <div>
-                <input type="checkbox" id="dryCut" name="dryCut" value="dry cut">
-                <label for="service1"> Dry Cut</label>
-            </div>
-
-            <div>
-                <input type="checkbox" id="hairColor" name="hairColor" value="hair color">
-                <label for="vehicle2"> Hair color</label>
-            </div>
-
-            <div>
-                <input type="checkbox" id="blowOut" name="blowOut" value="blow out">
-                <label for="service1"> Blow Out</label>
-            </div>
-
-            <div>
-                <input type="checkbox" id="pressAndCurl" name="pressAndCurl" value="press and curl/flat iron">
-                <label for="vehicle2"> Press and Curl/Flat Iron</label>
-            </div>
-
-            <div>
-                <input type="checkbox" id="twists" name="twists" value="twists">
-                <label for="vehicle2"> Twists (no extensions)</label>
-            </div>
-
-            <div>
-                <input type="checkbox" id="flatTwists" name="flatTwists" value="flat twists">
-                <label for="vehicle2"> Flat twists</label>
-            </div>
-            <div>
-                <input type="checkbox" id="cornRows" name="cornRows" value="corn rows">
-                <label for="vehicle3"> corn rows</label>
-            </div>
-            <div>
-                <input type="checkbox" id="braiding" name="braiding" value="braiding">
-                <label for="vehicle3"> Braiding (no extensions)</label>
-            </div>
-
-            <div>
-                <input type="checkbox" id="senegaleseTwists" name="senegaleseTwists" value="senegalese twists">
-                <label for="vehicle2"> Senegalese twists</label>
-            </div>
-
-            <div>
-                <input type="checkbox" id="passionTwists" name="passionTwists" value="passion twists">
-                <label for="vehicle3"> Passion Twists</label>
-            </div>
-
-            <div>
-                <input type="checkbox" id="braidingExtensions" name="braidingExtensions" value="braiding and twists with extensions">
-                <label for="vehicle3"> Braiding/twists (with extensions)</label>
-            </div>
-
-            <div>
-                <input type="checkbox" id="crochet" name="crochet" value="crochet">
-                <label for="service1"> Crochet</label>
-            </div>
-
-            <div>
-                <input type="checkbox" id="locs" name="locs" value="locs">
-                <label for="service1"> Locs</label>
-            </div>
-
-            <div>
-                <input type="checkbox" id="sisterLocs" name="sisterLocs" value="sister locs">
-                <label for="vehicle2"> Sister Locs</label>
-            </div>
-
-            <div>
-                <input type="checkbox" id="weave" name="weave" value="weave">
-                <label for="service1"> Weave (sew-in)</label>
-            </div>
-
-            <div>
-                <input type="checkbox" id="wigs" name="wigs" value="wigs">
-                <label for="service1"> Wigs</label>
-            </div>
-
-            <div>
-                <input type="checkbox" id="hairTx" name="hairTx" value="hair treatment">
-                <label for="service1"> Hair treatment with heat</label>
-            </div>
-
-            <div>
-                <input type="checkbox" id="washDetangle" name="washDentangle" value="wash and detangle">
-                <label for="service1"> Wash and dentangle</label>
-            </div>
-           
-            </fieldset>
-        </div>
-
-
-            <h2>Contact Info</h2>
-            <div>
-                <label for="website">Website</label>
-                <input type="text" id="website" name="website">
-            </div>
-            <div>
-                <label for="phone">Phone number</label>
-                <input type="text" id="phone" name="phone">
-            </div>
-            <div>
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email">
-            </div> -->
-
-            <!-- </fieldset> -->
-
-            <!-- <fieldset id="fieldset-3"> -->
-
             <h2>Social Media</h2>
             <div class>
                 <label for="instagram">Instagram <i class="fab fa-instagram"></i></label>
@@ -204,48 +71,38 @@
             <input type="submit" value="Submit">
         </form>
 
-
-
-
-
         <!-- this need to be here, but hidden  -->
         <div id="map" class="hidden"> </div>
+
         <script>
-            let map;
             function initMap() {
                 const boston = { lat: 42.3601, lng: -71.0589 };
                 const map = new google.maps.Map(document.getElementById("map"), {
                     zoom: 12,
                     center: boston,
                 });
-            }
-            const address = document.querySelector("#address");
+            
             const geocoder = new google.maps.Geocoder();
             document.getElementById("address").addEventListener("blur", () => {
                 geocodeAddress(geocoder, map);
             });
-            //grabs address from text inpute field, and then geocodes/grads coords?
+        }
             function geocodeAddress(geocoder, resultsMap) {
                 const address = document.getElementById("address").value;
                 geocoder.geocode({ address: address }, (results, status) => {
                     if (status === "OK") {
-                        document.querySelector('#errMessage p').innerText = `Geocode successful!`;
+                        document.querySelector('#errMessage p').innerText = `Address validated!`;
                         document.getElementById("coords").value = results[0].geometry.location;
                     } else {
-                        document.querySelector('#errMessage p').innerText = `Geocode was not successful for the following reason: ${status}. Enter address with format: 10 Main St Boston MA`;
+                        document.querySelector('#errMessage p').innerText = `This address is not recognized. Please enter address with format: 10 Main St Boston MA`;
                         document.getElementById("coords").value = null;
                     }
                 });
             }
         </script>
 
-        <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKEZCz730qwqKPlvJkYEMWkXfqPPR2zeA&callback=initMap&libraries=&v=weekly"></script>
-
+<script src="<%= process.env.MAP_SCRIPT %>" async defer></script>
 
     </div>
-
-
-
 
     <%- include('../partials/footer') -%>

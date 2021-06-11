@@ -1,5 +1,5 @@
 <%- include('../partials/head') -%>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKEZCz730qwqKPlvJkYEMWkXfqPPR2zeA&callback=initMap&libraries=&v=weekly"
+<script src="<%= process.env.MAP_SCRIPT %>"
             async></script>
 
   <!-- <i class="fas fa-bars fa-2x" id="hambubrger-icon"></i> -->
@@ -13,7 +13,7 @@
       <ol>
         <li>Use the cursor to navigate and zoom into map by the desired neighborhood or area. </li>
         <li>Stylists are represented by icons. Click the icon to view information about a listing.</li>
-        <li>View a stylist's information and/or leave a comment for others to see!</li>
+        <li>View a stylist's information and visit their website/social media to learn more!</li>
       </ol>
     </div>
 
@@ -25,13 +25,7 @@
 
 let data = <%- JSON.stringify(data) %>;
 
-
-
         const boston = { lat: 42.3601, lng: -71.0589 };
-        //   const map = new google.maps.Map(document.getElementById("map"), {
-        //   zoom: 12,
-        //   center: boston,
-        // });
 
         let map;
         function initMap() {
@@ -68,9 +62,13 @@ let data = <%- JSON.stringify(data) %>;
           const contentString =
     `<div id="markerContent">` +
     `<h1>${each.fullName}</h1>` +
+    `<div><p>${each.business_type}</p></div>` +
     `<div><p>${each.address}</p></div>` +
+    `<div><p>${each.number}</p></div>` +
     `<div><a href = ${each.website}>${each.website}</div>` +
-  
+      `<div><p>${each.instagram}</p></div>` +
+      `<div><p>${each.facebook}</p></div>` +
+      `<div><p>${each.twitter}</p></div>` +
     "</div>";
        
 

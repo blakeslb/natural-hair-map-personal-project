@@ -1,10 +1,6 @@
 <%- include('../partials/head') -%>
 
 
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKEZCz730qwqKPlvJkYEMWkXfqPPR2zeA&callback=initMap&libraries=&v=weekly"
-        async></script>
-
     <div id="edit-listing">
 
         <!-- adjust this route -->
@@ -70,12 +66,9 @@
                     <label for="twitter">Twitter <i class="fab fa-twitter"></i></label>
                     <input type="text" id="twitter" name="twitter" value="<%=stylist.twitter%>">
                 </div>
-                <!-- <div>
-            <label for="isApproved">is Approved?</label>
-            <input type="text" id="isApproved" name="isApproved" value = <%=stylist.isApproved%>>
-        </div> -->
 
                 <div id="checkboxInput">
+                    Approved?
                     <div>
                         <label for="false">false</label>
 
@@ -98,36 +91,38 @@
 
         <div id="map" class="hidden"> </div>
         <script>
-            let map;
             function initMap() {
-                const boston = { lat: 42.3601, lng: -71.0589 };
-                const map = new google.maps.Map(document.getElementById("map"), {
-                    zoom: 12,
-                    center: boston,
-                });
-            }
-            const address = document.querySelector("#address");
+             const boston = { lat: 42.3601, lng: -71.0589 }
+             const map = new google.maps.Map(document.getElementById("map"), {
+              zoom: 12,
+              center: boston,
+            });
             const geocoder = new google.maps.Geocoder();
             document.getElementById("address").addEventListener("blur", () => {
-                geocodeAddress(geocoder, map);
+              geocodeAddress(geocoder, map);
             });
-            //grabs address from text inpute field, and then geocodes/grads coords?
-            function geocodeAddress(geocoder, resultsMap) {
-                const address = document.getElementById("address").value;
-                geocoder.geocode({ address: address }, (results, status) => {
-                    if (status === "OK") {
-                        document.querySelector('#errMessage p').innerText = `Geocode successful!`;
-                        document.getElementById("coords").value = results[0].geometry.location;
-                    } else {
-                        document.querySelector('#errMessage p').innerText = `Geocode was not successful for the following reason: ${status}. Enter address with format: 10 Main St Boston MA`;
-                        document.getElementById("coords").value = null;
-                    }
-                });
-            }
+          }
+  
+          function geocodeAddress(geocoder, resultsMap) {
+            const address = document.getElementById("address").value;
+            geocoder.geocode({ address: address }, (results, status) => {
+              if (status === "OK") {
+                  document.querySelector('#errMessage p').innerText = `Geocode successful!`;
+                  document.getElementById("coords").value = results[0].geometry.location;
+              } else {
+                  document.querySelector('#errMessage p').innerText = `Geocode was not successful for the following reason: ${status}. Enter address with format: 10 Main St Boston MA`;
+                  document.getElementById("coords").value = null;
+              }
+            });
+          }
+          </script>
         </script>
 
 
 
 
     </div>
+
+    <script src="<%= process.env.MAP_SCRIPT %>" async defer></script>
+
     <%- include('../partials/footer') -%>
