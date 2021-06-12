@@ -1,0 +1,25 @@
+
+<%- include('../partials/head') -%>
+
+
+    <div class="container">
+        <h2 id="LOGIN">REGISTER</h2>
+    
+        <form action="/register" class="form_login" method = POST>
+
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Username" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="text" id="password:" name="password" placeholder="Password" minLength="6" required>
+            </div>
+            <input type="submit" value="Submit">
+
+    </div>
+    </form>
+    </div>
+
+
+    <%- include('../partials/footer') -%>
