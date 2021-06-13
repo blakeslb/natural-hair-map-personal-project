@@ -1,7 +1,7 @@
 const { response } = require('express');
-const Stylist = require('../Models/stylistModel');
-const passport = require('passport');
-// const User = require("../models/adminModel");
+const Stylist = require('../models/stylistModel')
+const passport = require('passport')
+const User = require("../models/adminModel")
 //user = require("../models...")
 
 
