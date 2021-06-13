@@ -6,7 +6,6 @@ const path = require('path');
 const routes = require('./routes/index');
 require('./config/connection');
 const app = express();
-const PORT = 3000;
 // const bodyParser = require("body-parser");
 
 
@@ -21,4 +20,5 @@ app.use(express.json());
 
 app.use(routes);
 
+const PORT = process.env.PORT || 3000
 app.listen(PORT, () => console.log(`Server listening on http://localhost:${PORT}`));
