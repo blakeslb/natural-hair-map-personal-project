@@ -64,12 +64,12 @@ let data = <%- JSON.stringify(data) %>;
     `<h1>${each.fullName}</h1>` +
     `<div><p>${each.business_type}</p></div>` +
     `<div><p>${each.address}</p></div>` +
-    `<div><p>${each.number}</p></div>` +
+    `<div><p>${each.phone}</p></div>` +
     `<div><a href = ${each.website}>${each.website}</div>` +
       `<div><p>${each.instagram}</p></div>` +
       `<div><p>${each.facebook}</p></div>` +
       `<div><p>${each.twitter}</p></div>` +
-    "</div>";
+    `</div>`;
        
 
           const infowindow = new google.maps.InfoWindow({
@@ -90,7 +90,7 @@ let data = <%- JSON.stringify(data) %>;
 
 
 
-<button><a href="/auth/google" role="button">Login with Google</a>
+<button id="googlebtn"><a href="/auth/google" role="button"><i class="fab fa-google"></i></a>
 </button>
 
     </div>

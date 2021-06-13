@@ -68,7 +68,7 @@ module.exports = {
                 website: request.body.website,
                 address: request.body.address,
                 coords: request.body.coords,
-                phone: request.body.number,
+                phone: request.body.phone,
                 instagram: request.body.instagram,
                 facebook: request.body.facebook,
                 tiktok: request.body.tiktok,

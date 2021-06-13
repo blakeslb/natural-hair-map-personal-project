@@ -38,7 +38,7 @@ module.exports = {
       business_type: request.body.business_type,
       address: request.body.address,
       website: request.body.website,
-      phone: request.body.number,
+      phone: request.body.phone,
       email: request.body.email,
       instagram: request.body.instagram,
       twitter: request.body.twitter,
