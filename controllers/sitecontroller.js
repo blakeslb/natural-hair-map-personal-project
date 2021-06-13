@@ -1,7 +1,9 @@
 const { response } = require('express');
-const Stylist = require('../models/stylistModel');
+const Stylist = require('../Models/stylistModel');
 const passport = require('passport');
-const User = require("../models/adminModel");
+// const User = require("../models/adminModel");
+//user = require("../models...")
+
 
 
 module.exports = {

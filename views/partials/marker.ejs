@@ -4,10 +4,10 @@
 <tr>
    <td><%= stylist.fullName %> </td>
    <td><%= stylist.isApproved %></td>
-   <td>  <button id="review-button"><a href="/admin/approve/<%= stylist._id %>">Review</a></button>
+   <td>  <button class="review-button"><a href="/admin/approve/<%= stylist._id %>">Review</a></button>
 
    </div></td>
    <td><form action="/admin/approve/<%= stylist._id %>?_method=DELETE" method="POST">
-      <button id="review-button" type="submit">Delete</button>
+      <button class="review-button" type="submit">Delete</button>
        </form> </td>
 </tr>

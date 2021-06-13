@@ -395,15 +395,20 @@ div#admin-table table, th, td{
     margin: 10% auto; 
     padding: 10px;
 }
-button#review-button {
+td form {
+    margin: 0;
+    padding: 0;
+    font-size: 1em; 
+}
+button.review-button {
     background-color: var(--yellow);
     border-radius: 5px;
     border: 1px solid rgb(187, 187, 37)
 }
-#review-button a {
+.review-button a {
     padding: 10px; 
 }
-#review-button a:visited {
+.review-button a:visited {
     color: var(blue)
 
 }
@@ -418,7 +423,7 @@ div #edit-listing {
 }
 /* check boxes on admin review page */
 #checkboxInput input {
-    display: inline; 
+    display: flex;
 
 }
 /* div#admin-list {
