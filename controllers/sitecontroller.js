@@ -1,6 +1,8 @@
 const { response } = require('express');
 const Stylist = require('../models/stylistModel');
-// const Marker = require('../models/markerModel')
+const passport = require('passport');
+const User = require("../models/adminModel");
+
 
 module.exports = {
   //home page
@@ -61,5 +63,19 @@ module.exports = {
 
   confirm: (request, response) => {
     response.render('pages/sub-message');
-  }
+  },
+
+  google_get: 
+  passport.authenticate('google', {scope: ['openid', 'profile', 'email']}),
+
+google_redirect_get: [
+  passport.authenticate('google', {failureRedirect: '/'}),
+  function(request, response) {
+    response.redirect('/admin');
+}],
+
+admin_add: (request, response) => {
+    response.send('testing my geocode app!')
+},
+
 }

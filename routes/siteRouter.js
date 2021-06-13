@@ -6,11 +6,11 @@ const siteController = require('../controllers/sitecontroller');
 router.route('/')
     .get(siteController.index_get)
     
-    // .post(siteController.index_post);
+    router.route('/auth/google')
+    .get(siteController.google_get)
 
-// router.route('/:id')
-    // .post(siteController.approveListing)
-    // .put(siteController.updateListing);
+router.route('/auth/google/admin')
+    .get(siteController.google_redirect_get)
 
 router.route('/about')
     .get(siteController.about_get);
