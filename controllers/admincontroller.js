@@ -10,6 +10,7 @@ module.exports = {
 
     admin_get: (request, response) => {
         if (request.isAuthenticated()) {
+            // && request. === process.env.GOOGLE_ID
 
 
             Stylist.find({}, (error, allStylists) => {

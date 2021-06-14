@@ -72,8 +72,10 @@ module.exports = {
 
 google_redirect_get: [
   passport.authenticate('google', {failureRedirect: '/'}),
+  
   function(request, response) {
-    response.redirect('/admin');
+
+    response.redirect('/admin')
 }],
 
 admin_add: (request, response) => {
