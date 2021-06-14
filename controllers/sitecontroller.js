@@ -4,8 +4,6 @@ const passport = require('passport')
 const User = require("../models/adminModel")
 //user = require("../models...")
 
-
-
 module.exports = {
   //home page
   index_get: (request, response) => {

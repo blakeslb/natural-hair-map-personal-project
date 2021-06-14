@@ -2,8 +2,6 @@ const { response } = require('express');
 const Stylist = require('../models/stylistModel')
 const User = require("../models/adminModel");
 
-
-
 module.exports = {
 
     //admin page
