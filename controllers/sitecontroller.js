@@ -76,8 +76,7 @@ google_redirect_get: [
     response.redirect('/admin')
 }],
 
-admin_add: (request, response) => {
-    response.send('testing my geocode app!')
-},
+
+
 
 }

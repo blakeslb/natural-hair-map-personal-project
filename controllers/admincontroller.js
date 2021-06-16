@@ -7,10 +7,8 @@ module.exports = {
     //admin page
 
     admin_get: (request, response) => {
-        if (request.isAuthenticated()) {
-            // && request. === process.env.GOOGLE_ID
-
-
+        const admin=request.user.googleId;
+        if (request.isAuthenticated() && admin === process.env.GOOGLE_ID) {
             Stylist.find({}, (error, allStylists) => {
                 if (error) {
                     return error;
@@ -26,8 +24,8 @@ module.exports = {
 
 
     delete: (request, response) => {
-        if (request.isAuthenticated()) {
-
+        const admin=request.user.googleId;
+        if (request.isAuthenticated() && admin === process.env.GOOGLE_ID) {
             const { id } = request.params;
             Stylist.deleteOne({ _id: id }, (error) => {
                 if (error) {
@@ -41,8 +39,8 @@ module.exports = {
         }
     },
     approve: (request, response) => {
-        if (request.isAuthenticated()) {
-
+        const admin=request.user.googleId;
+        if (request.isAuthenticated() && admin === process.env.GOOGLE_ID) {
             const stylistId = request.params.id;
             Stylist.findOne({ _id: stylistId }, (error, foundStylist) => {
                 if (error) {
@@ -56,8 +54,8 @@ module.exports = {
         }
     },
     approve_put: (request, response) => {
-        if (request.isAuthenticated()) {
-
+        const admin=request.user.googleId;
+        if (request.isAuthenticated() && admin === process.env.GOOGLE_ID) {
         const { id } = request.params;
 
         Stylist.findByIdAndUpdate(id, {

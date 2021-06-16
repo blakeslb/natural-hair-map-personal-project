@@ -39,7 +39,7 @@ passport.deserializeUser(function (id, done) {
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "https://naturalhairmap.herokuapp.com/auth/google/admin"
+    callbackURL: "http://localhost:3000/auth/google/admin"
 },
     function (accessToken, refreshToken, email, cb) {
         console.log(email);
