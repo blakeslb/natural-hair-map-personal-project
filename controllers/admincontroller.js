@@ -68,7 +68,6 @@ module.exports = {
                 phone: request.body.phone,
                 instagram: request.body.instagram,
                 facebook: request.body.facebook,
-                tiktok: request.body.tiktok,
                 twitter: request.body.twitter,
                 isApproved: (request.body.isApproved === "true")
 

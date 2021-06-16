@@ -43,7 +43,6 @@ module.exports = {
       instagram: request.body.instagram,
       twitter: request.body.twitter,
       facebook: request.body.facebook,
-      tiktok: request.body.tiktok,
       coords: request.body.coords,
       isApproved: false 
     });

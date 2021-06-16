@@ -372,6 +372,12 @@ form select {
         border-radius:10px;
       }
 
+.form-container span {
+    color: white; 
+    font-weight: 400;
+    text-decoration: underline;
+}
+
 /* ------------- */
 
 /* Admin table */
@@ -436,6 +442,9 @@ footer h3 {
     padding: 30px; 
     font-weight: 200;
     }
+#copyright {
+    font-size: .6rem;
+}
 
 /* tablet size */
 @media screen and (min-width: 600px){

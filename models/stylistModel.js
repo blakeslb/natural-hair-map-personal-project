@@ -36,9 +36,7 @@ const stylistSchema = new Schema({
     facebook: {
         type: String
     },
-    tiktok: {
-        type: String
-    },
+  
     twitter: {
         type: String,
     },
