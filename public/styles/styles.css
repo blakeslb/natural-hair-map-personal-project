@@ -442,8 +442,12 @@ footer h3 {
     padding: 30px; 
     font-weight: 200;
     }
-#copyright {
+.copyright, .copyright a {
     font-size: .6rem;
+}
+.copyright a {
+    color: white; 
+
 }
 
 /* tablet size */
